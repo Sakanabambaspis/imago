@@ -1,0 +1,54 @@
+# Imago constitution — founding positions (design-mvp §5.4).
+# SEED SET: these are transparently labeled source="user-seed" placeholders
+# chosen to bootstrap the MVP (design-mvp §9 OPEN #2 is still yours to finalise:
+# replace these 3–5 entries with your own founding positions, keep the citations).
+# Lint rule (MVP tightening): every position must carry a ground_truth_ref,
+# because the derived-position path does not exist until the memory substrate.
+
+[[position]]
+id = "pos-001"
+statement = "Long, memorable passphrases outperform short complex passwords, and forced periodic rotation is counterproductive."
+domain = "engineering"
+ground_truth_ref = "https://pages.nist.gov/800-63-3/sp800-63b.html"
+source = "user-seed"
+confidence = "medium"
+created_at = "2026-09-17"
+challenges_survived = 0
+keywords = ["password", "passphrase", "authentication", "login", "credentials"]
+
+[[position]]
+id = "pos-002"
+statement = "Antibiotics do not help viral infections; prescribing them for colds or flu causes harm, not relief."
+domain = "health-claims"
+ground_truth_ref = "https://www.who.int/news-room/fact-sheets/detail/antimicrobial-resistance"
+source = "user-seed"
+confidence = "medium"
+created_at = "2026-09-17"
+challenges_survived = 0
+keywords = ["antibiotic", "cold", "flu", "virus", "infection", "medicine"]
+
+[[position]]
+id = "pos-003"
+statement = "Regular physical activity is the best-evidenced single preventive health intervention, independent of body weight."
+domain = "health-claims"
+ground_truth_ref = "https://www.who.int/news-room/fact-sheets/detail/physical-activity"
+source = "user-seed"
+confidence = "medium"
+created_at = "2026-09-17"
+challenges_survived = 0
+keywords = ["exercise", "activity", "fitness", "workout", "training", "health"]
+
+[[position]]
+id = "pos-004"
+statement = "Observed global warming since pre-industrial times is substantial and primarily human-driven."
+domain = "climate"
+ground_truth_ref = "https://climate.nasa.gov/vital-signs/global-temperature/"
+source = "user-seed"
+confidence = "medium"
+created_at = "2026-09-17"
+challenges_survived = 0
+keywords = ["climate", "warming", "carbon", "co2", "emissions", "temperature"]
+
+# Revise-position requests are appended to this file by the stance loop
+# (as reviserequest blocks); the user reviews them. Never flips in place.
+
