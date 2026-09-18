@@ -1,21 +1,20 @@
-# Imago configuration. Everything behavioral is declarative: remove a plugin
-# from the lists below and its capability disappears (the subtraction test).
+# Imago configuration — Groq profile. Use with: imago --config config.groq.toml <verb>
+# Note: Groq 403-blocks Hong Kong-region egress; requires supported-region access.
 
 [model]
 provider = "openai-compatible"        # | "anthropic"
-name = "glm-4.7-flash"                # pinned; every wave records it. Free GLM model
-                                      # (¥0 in/out); step up the pin for real waves —
-                                      # glm-5.3-flash is NOT free (half-price promo only).
-base_url = "https://open.bigmodel.cn/api/paas/v4"  # Zhipu BigModel; any OpenAI-compatible endpoint
-api_key_env = "BIGMODEL_API_KEY"
+name = "llama-3.1-8b-instant"         # pinned; every wave records it. Groq free-tier
+                                      # smoke model; pick a stronger pinned model for
+                                      # real waves (reasoning-style models hold better).
+base_url = "https://api.groq.com/openai/v1"
+api_key_env = "GROQ_API_KEY"
 temperature = 0.7
-builtin_search = true                 # Zhipu endpoints ship the server-side web_search tool;
-                                      # endpoints without the extension reject the tool
+builtin_search = false                # Groq rejects the Zhipu-style web_search tool
 
 # Optional per-model pricing (USD per million tokens) for cost estimates.
-[model.pricing."openai-compatible/glm-4.7-flash"]
-input_per_mtok = 0.0
-output_per_mtok = 0.0
+[model.pricing."openai-compatible/llama-3.1-8b-instant"]
+input_per_mtok = 0.05
+output_per_mtok = 0.08
 
 [session]
 loop = "stance"                       # | "plain"  (the A/B switch)
