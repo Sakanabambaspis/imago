@@ -25,10 +25,10 @@ export IMAGO_API_KEY=...                    # your key; env only, never config
 ```
 
 Point `[model]` in `config.toml` at any endpoint: `provider =
-"openai-compatible"` with any `base_url` (Groq's free tier currently; GLM
-also works), or `provider = "anthropic"`. Provider built-in web search is
-on by default (`builtin_search` — turn it off for endpoints without the
-extension); the `fetch` tool is plain HTTP.
+"openai-compatible"` with any `base_url` (Zhipu BigModel with the free
+`glm-4.7-flash` currently), or `provider = "anthropic"`. Provider
+built-in web search is on by default (`builtin_search` — turn it off for
+endpoints without the extension); the `fetch` tool is plain HTTP.
 
 ## What the stance loop does on every turn
 
