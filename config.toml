@@ -3,15 +3,21 @@
 
 [model]
 provider = "openai-compatible"        # | "anthropic"
-name = "glm-4.6"                      # pinned; every wave records it
-base_url = "https://api.z.ai/api/paas/v4"  # any OpenAI-compatible endpoint
+name = "llama-3.1-8b-instant"         # pinned; every wave records it. Groq free-tier
+                                      # smoke model; pick a stronger pinned model for
+                                      # real waves (reasoning-style models hold better).
+base_url = "https://api.groq.com/openai/v1"  # any OpenAI-compatible endpoint
 api_key_env = "IMAGO_API_KEY"
 temperature = 0.7
+builtin_search = false                # provider server-side search (Zhipu-style web_search);
+                                      # endpoints without the extension reject the tool
 
 # Optional per-model pricing (USD per million tokens) for cost estimates.
-[model.pricing."openai-compatible/glm-4.6"]
-input_per_mtok = 0.6
-output_per_mtok = 2.2
+# List price: telemetry estimates spend at list rate; Groq free tier is not billed
+# within its rate limits.
+[model.pricing."openai-compatible/llama-3.1-8b-instant"]
+input_per_mtok = 0.05
+output_per_mtok = 0.08
 
 [session]
 loop = "stance"                       # | "plain"  (the A/B switch)

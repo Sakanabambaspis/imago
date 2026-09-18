@@ -191,7 +191,9 @@ def build_client(model_cfg) -> ModelClient:
             f"(export {model_cfg.api_key_env}=... or put it in a local .env — "
             "see .env.example). The key is read from the environment only; "
             "it is never stored in config or code.")
-    enable_search = True  # provider built-in search is on unless the adapter lacks it
+    # Server-side search is a per-endpoint extension (Zhipu-style web_search,
+    # Anthropic web_search); endpoints without it reject the tool, so it's config.
+    enable_search = model_cfg.builtin_search
     if model_cfg.provider == "openai-compatible":
         return OpenAICompatClient(model_cfg.base_url, key, model_cfg.name,
                                   builtin_search=enable_search)

@@ -20,6 +20,7 @@ DEFAULTS = {
     "base_url": "https://api.z.ai/api/paas/v4",
     "api_key_env": "IMAGO_API_KEY",
     "temperature": 0.7,
+    "builtin_search": True,
 }
 
 
@@ -42,6 +43,7 @@ class ModelConfig:
     base_url: str
     api_key_env: str
     temperature: float
+    builtin_search: bool = True  # provider server-side web search (endpoint-specific)
     pricing: dict = field(default_factory=dict)  # "provider/name" -> per-mtok
 
     @property
@@ -162,6 +164,7 @@ def load_config(path: Path | None = None) -> Config:
     model = ModelConfig(
         provider=m["provider"], name=m["name"], base_url=m.get("base_url", ""),
         api_key_env=m["api_key_env"], temperature=float(m["temperature"]),
+        builtin_search=bool(m["builtin_search"]),
         pricing=pricing,
     )
     return Config(
