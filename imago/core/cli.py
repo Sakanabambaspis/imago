@@ -11,7 +11,7 @@ from __future__ import annotations
 import argparse
 import sys
 
-from .config import load_config, load_profile
+from .config import load_config, load_dotenv, load_profile
 from .events import EventLog, read_events
 from .host_factory import build_session_host
 from .ledger import (append_revision_request, lint_positions, lint_trap_topics,
@@ -22,6 +22,7 @@ from ..plugins.instruments import run_p1, run_p2
 
 
 def main(argv=None):
+    load_dotenv()
     parser = argparse.ArgumentParser(
         prog="imago",
         description="A single-user agent that holds positions under pushback — "

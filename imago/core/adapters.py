@@ -188,8 +188,9 @@ def build_client(model_cfg) -> ModelClient:
     if not key:
         raise SystemExit(
             f"Missing API key: set {model_cfg.api_key_env} "
-            f"(export {model_cfg.api_key_env}=...). The key is read from the "
-            "environment only; it is never stored in config or code.")
+            f"(export {model_cfg.api_key_env}=... or put it in a local .env — "
+            "see .env.example). The key is read from the environment only; "
+            "it is never stored in config or code.")
     enable_search = True  # provider built-in search is on unless the adapter lacks it
     if model_cfg.provider == "openai-compatible":
         return OpenAICompatClient(model_cfg.base_url, key, model_cfg.name,

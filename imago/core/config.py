@@ -9,6 +9,7 @@ messages state exactly what to do.
 from __future__ import annotations
 
 import json
+import os
 import tomllib
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -98,6 +99,35 @@ def _paths(root: Path) -> Paths:
         runs_dir=root / ".imago" / "runs",
         results_dir=root / "docs" / "results",
     )
+
+
+def load_dotenv(path: Path | None = None) -> None:
+    """Load a local .env into the process environment; the real env wins.
+
+    ADR-0005: key material arrives via the environment only. .env is the
+    gitignored convenience file for supplying it — read at fill-in-the-blanks
+    priority, never consulted for anything already set. Stdlib-only so the
+    httpx-only dependency rule holds.
+    """
+    path = Path(path) if path else Path(".env")
+    if not path.exists():
+        return
+    for line in path.read_text(encoding="utf-8").splitlines():
+        text = line.strip()
+        if not text or text.startswith("#"):
+            continue
+        if text.startswith("export "):
+            text = text[len("export "):]
+        key, sep, value = text.partition("=")
+        if not sep:
+            continue
+        key, value = key.strip(), value.strip()
+        if len(value) >= 2 and value[0] == value[-1] and value[0] in "\"'":
+            value = value[1:-1]
+        elif " #" in value:
+            value = value.split(" #", 1)[0].rstrip()
+        if key and key not in os.environ:
+            os.environ[key] = value
 
 
 def load_config(path: Path | None = None) -> Config:

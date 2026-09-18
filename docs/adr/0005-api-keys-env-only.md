@@ -12,5 +12,5 @@ The API key is read from the environment variable named by `api_key_env` (defaul
 
 ## Consequences
 
-- `config.toml` and `profiles/*.toml` are safe to commit; no `.env` file belongs in the repo.
+- `config.toml` and `profiles/*.toml` are safe to commit; no `.env` file belongs in the repo (amended 2026-09-18: a *local, gitignored* `.env` is the supported convenience mechanism — the CLI loads it from the CWD at fill-in-the-blanks priority, the real environment wins, and `.env.example` is the only committed template).
 - Wave JSON records the pinned model name and judge-prompt version, never credentials.

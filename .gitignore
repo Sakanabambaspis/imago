@@ -4,3 +4,6 @@ __pycache__/
 dist/
 .imago/
 .pytest_cache/
+.env
+.env.*
+!.env.example

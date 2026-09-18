@@ -19,6 +19,7 @@ imago metrics --last 20           # cost/latency per purpose_tag + wave reports
 ```bash
 uv venv .venv && uv pip install -e .        # or: pip install -e .
 export IMAGO_API_KEY=...                    # your key; env only, never config
+                                            # (or copy .env.example to .env and fill it in — gitignored)
 .venv/bin/imago eval p1 --stub agree        # scorer self-test (free, instant)
 .venv/bin/imago chat                        # talk
 ```
