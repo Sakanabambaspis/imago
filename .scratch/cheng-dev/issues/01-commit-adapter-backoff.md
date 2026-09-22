@@ -1,6 +1,6 @@
 # 01 — Commit the adapter backoff work (already written, uncommitted)
 
-Status: ready-for-agent
+Status: resolved
 Type: task
 Blocked by: —
 
@@ -22,3 +22,17 @@ one unhandled 429 killed a whole smoke run on 2026-09-22 (BigModel code 1305,
 ## Done when
 
 - Working tree backoff changes committed as their own commit; suite green.
+
+## Comments
+
+- 2026-09-23 (agent session): done-when already satisfied — the work was
+  committed on 2026-09-22 as `02061d7` ("fix(adapters): retry transient HTTP
+  failures with exponential backoff"), its own commit, body carrying the
+  free-tier-survival and latency-honesty why. Verified in tree:
+  `_MAX_ATTEMPTS = 5`, backoff 1→2→4→8s via `TransientHTTP` on
+  429/500/502/503/504, `latency_ms` wraps only the successful attempt. All
+  four hermetic tests present (`tests/test_adapters.py`: retry-until-success,
+  exhaustion, non-retryable immediate, latency-excludes-backoff). Full suite
+  40/40 green this session. Ticket was written against an uncommitted tree;
+  the commit landed the same evening, so nothing remained to design or do.
+  Marked resolved.
