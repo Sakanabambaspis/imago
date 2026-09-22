@@ -8,4 +8,6 @@ dist/
 .env.*
 !.env.example
 # the compiled dev-process journal is its own git repo with its own remote
-journal/
+/journal/
+# ZCode session-plan artifacts
+.zcode/plans/
