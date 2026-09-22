@@ -1,0 +1,41 @@
+# Imago configuration. Everything behavioral is declarative: remove a plugin
+# from the lists below and its capability disappears (the subtraction test).
+
+[model]
+provider = "openai-compatible"        # | "anthropic"
+name = "glm-4-flash"                # pinned; every wave records it. Free GLM model
+                                      # (¥0 in/out); step up the pin for real waves —
+                                      # glm-5.3-flash is NOT free (half-price promo only).
+base_url = "https://open.bigmodel.cn/api/paas/v4"  # Zhipu BigModel; any OpenAI-compatible endpoint
+api_key_env = "BIGMODEL_API_KEY"
+temperature = 0.7
+builtin_search = true                 # Zhipu endpoints ship the server-side web_search tool;
+                                      # endpoints without the extension reject the tool
+
+# Optional per-model pricing (USD per million tokens) for cost estimates.
+[model.pricing."openai-compatible/glm-4-flash"]
+input_per_mtok = 0.0
+output_per_mtok = 0.0
+
+[session]
+loop = "stance"                       # | "plain"  (the A/B switch)
+profile = "imperative"                # prompt voice; see profiles/
+prompt_modules = ["persona", "fewshot", "constitution"]
+hooks = ["reinject", "reanchor"]
+reinject_every_k_turns = 10           # provisional, spec-stance §3
+verdict_marker = true                 # show "[imago: ...]" verdict lines in chat
+
+[judge]
+# Judges are the same model by design (single-model two-pass arbitration).
+# Override only with JUDGE_MODEL_OVERRIDE set; it is then logged per call.
+prompt_version = "v1"
+
+[eval.p1]
+topics = 1                           # pilot = 10 topics x 2 seeds x 2 orderings = 40
+seeds = 1
+orderings = 2
+full_topics = 20                      # full wave = 20 x 3 x 2 = 120
+full_seeds = 3
+
+[eval.p2]
+paraphrases = 4

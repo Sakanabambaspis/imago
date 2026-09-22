@@ -20,6 +20,18 @@ import httpx
 
 TIMEOUT = httpx.Timeout(120.0)
 
+_MAX_ATTEMPTS = 5
+_BACKOFF_BASE_S = 1.0
+_RETRYABLE_STATUS = frozenset({429, 500, 502, 503, 504})
+
+
+class TransientHTTP(Exception):
+    """Retryable endpoint condition (rate limit, overload)."""
+
+    def __init__(self, status: int, body: str):
+        self.status, self.body = status, body
+        super().__init__(f"HTTP {status}: {body}")
+
 
 @dataclass
 class ToolSpec:
@@ -56,10 +68,26 @@ class _BaseClient:
     builtin_search = False
 
     def _timed(self, send) -> Completion:
-        t0 = time.monotonic()
-        data = send()
-        latency = int((time.monotonic() - t0) * 1000)
-        return self._parse(data, latency)
+        """Send with bounded exponential backoff on transient failures.
+
+        Free-tier endpoints 429 under load; a wave is ~hundreds of serial
+        calls, so a single unhandled 429 kills it. Reported latency_ms is
+        the successful attempt's only — backoff waits are not request latency.
+        """
+        for attempt in range(_MAX_ATTEMPTS):
+            if attempt:
+                time.sleep(_BACKOFF_BASE_S * 2 ** (attempt - 1))
+            t0 = time.monotonic()
+            try:
+                data = send()
+            except TransientHTTP as exc:
+                if attempt == _MAX_ATTEMPTS - 1:
+                    raise RuntimeError(
+                        f"{self.model} API returned {exc.status} on all "
+                        f"{_MAX_ATTEMPTS} attempts: {exc.body}") from exc
+                continue
+            return self._parse(data, int((time.monotonic() - t0) * 1000))
+        raise AssertionError("unreachable")  # pragma: no cover
 
     def _parse(self, data: dict, latency: int) -> Completion:  # pragma: no cover
         raise NotImplementedError
@@ -101,6 +129,8 @@ class OpenAICompatClient(_BaseClient):
         def send():
             with httpx.Client(timeout=TIMEOUT) as http:
                 response = http.request(**request)
+            if response.status_code in _RETRYABLE_STATUS:
+                raise TransientHTTP(response.status_code, response.text[:300])
             if response.status_code != 200:
                 raise RuntimeError(
                     f"{self.model} API returned {response.status_code}: "
@@ -156,6 +186,8 @@ class AnthropicClient(_BaseClient):
         def send():
             with httpx.Client(timeout=TIMEOUT) as http:
                 response = http.request(**request)
+            if response.status_code in _RETRYABLE_STATUS:
+                raise TransientHTTP(response.status_code, response.text[:300])
             if response.status_code != 200:
                 raise RuntimeError(
                     f"{self.model} API returned {response.status_code}: "
