@@ -1,0 +1,29 @@
+{
+  "hooks": {
+    "enabled": true,
+    "events": {
+      "UserPromptSubmit": [
+        {
+          "hooks": [
+            {
+              "type": "command",
+              "command": "/usr/bin/python3 \"${ZCODE_PROJECT_DIR}/scripts/journal_hook.py\" prompt",
+              "timeout": 10
+            }
+          ]
+        }
+      ],
+      "Stop": [
+        {
+          "hooks": [
+            {
+              "type": "command",
+              "command": "/usr/bin/python3 \"${ZCODE_PROJECT_DIR}/scripts/journal_hook.py\" turn_end",
+              "timeout": 10
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
