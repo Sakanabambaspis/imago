@@ -18,6 +18,16 @@ The five canonical triage-role labels are used verbatim as the `Status:` line of
 
 Single-context: `CONTEXT.md` at the root + `docs/adr/`. See `docs/agents/domain.md`.
 
+### Project journal
+
+Dev-process capture runs mechanically: ZCode hooks append every prompt and
+turn-end to `.imago/journal/raw/` (append-only, local-only, gitignored). A
+scheduled digest compiles `journal/` — its own git repo, private GitHub
+remote — per the faithfulness contract in `docs/agents/journal.md`. Never
+edit the raw layer or past day files; corrections go through the digest.
+Prompts are recorded verbatim, so stating design rationale in prompts is
+what gets preserved.
+
 ## Git conventions
 
 - Trunk-based on `main`. Short-lived branches are fine for risky experiments (e.g. a countermeasure stack between waves); merge back promptly — there is no review gate for a solo repo, there is only history.
