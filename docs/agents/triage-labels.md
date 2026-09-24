@@ -16,8 +16,3 @@ Edit the right-hand column to match whatever vocabulary you actually use.
 
 In this repo the labels are GitHub labels on `Sakanabambaspis/imago`, applied
 via `gh issue edit <n> --add-label "<label>"` (see `issue-tracker.md`).
-
-**Binding condition:** `ready-for-agent` may only be applied per the rubric
-and consent rules in [`agent-ready.md`](agent-ready.md) — evidence-cited
-checklist, quote-back approval, named override. `wontfix` (rejected
-enhancements) also requires a `.out-of-scope/` record per the triage skill.
