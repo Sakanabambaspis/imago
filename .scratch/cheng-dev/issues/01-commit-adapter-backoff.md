@@ -36,3 +36,8 @@ one unhandled 429 killed a whole smoke run on 2026-09-22 (BigModel code 1305,
   40/40 green this session. Ticket was written against an uncommitted tree;
   the commit landed the same evening, so nothing remained to design or do.
   Marked resolved.
+
+
+## Migrated
+
+Imported as GitHub issue #1 (`Sakanabambaspis/imago`) on 2026-09-24; that issue is canonical. This file is a frozen record — do not update it.

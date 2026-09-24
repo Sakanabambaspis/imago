@@ -23,3 +23,8 @@ spend that makes it citable.
 
 - Wave JSONs at ≥100 runs/arm with the provisional note absent, and the
   result note updated or superseded.
+
+
+## Migrated
+
+Imported as GitHub issue #10 (`Sakanabambaspis/imago`) on 2026-09-24; that issue is canonical. This file is a frozen record — do not update it.

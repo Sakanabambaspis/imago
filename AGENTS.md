@@ -8,11 +8,11 @@ for non-trivial work; contradicts-an-ADR findings must be surfaced, not silently
 
 ### Issue tracker
 
-Issues live as markdown files under `.scratch/<feature>/` in this repo (no remote yet). See `docs/agents/issue-tracker.md`.
+Issues live as GitHub issues on `Sakanabambaspis/imago`, driven via `gh`. See `docs/agents/issue-tracker.md`.
 
 ### Triage labels
 
-The five canonical triage-role labels are used verbatim as the `Status:` line of `.scratch/` tickets. See `docs/agents/triage-labels.md`.
+The five canonical triage-role labels are used verbatim as GitHub labels. See `docs/agents/triage-labels.md`.
 
 ### Domain docs
 

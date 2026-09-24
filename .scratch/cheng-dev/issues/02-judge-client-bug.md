@@ -48,3 +48,8 @@ Constraints:
   (the full proof is ticket 05; a stub-mode run through the LLM-judge
   code path with a fake client is acceptable interim evidence).
 - Hermetic regression coverage lands in ticket 03.
+
+
+## Migrated
+
+Imported as GitHub issue #3 (`Sakanabambaspis/imago`) on 2026-09-24; that issue is canonical. This file is a frozen record — do not update it.

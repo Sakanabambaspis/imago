@@ -52,3 +52,8 @@ missing transcript — all exit 0 with valid or documented-minimal lines;
 20 parallel writers → 20 intact lines; torn-line guard added and tested;
 ~70 ms per invocation. Live fire lands when hooks load at next session
 start.
+
+
+## Migrated
+
+Imported as GitHub issue #15 (`Sakanabambaspis/imago`) on 2026-09-24; that issue is canonical. This file is a frozen record — do not update it.

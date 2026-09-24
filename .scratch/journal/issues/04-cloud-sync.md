@@ -40,3 +40,8 @@ with no spurious URL rewrite. True divergence (competing commit landed on
 the remote first) → exit 1, remote untouched, never force-pushes. Owner
 still owes: create the private GitHub repo and drop the URL into
 `.zcode/journal-sync.json`.
+
+
+## Migrated
+
+Imported as GitHub issue #18 (`Sakanabambaspis/imago`) on 2026-09-24; that issue is canonical. This file is a frozen record — do not update it.

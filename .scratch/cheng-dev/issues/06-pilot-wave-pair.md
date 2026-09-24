@@ -36,3 +36,8 @@ argument that justifies the work.
   per AGENTS.md).
 - `imago metrics --last` summary eyeballed: judge/task/probe economics of
   the pair noted — that number feeds the email's economics paragraph.
+
+
+## Migrated
+
+Imported as GitHub issue #7 (`Sakanabambaspis/imago`) on 2026-09-24; that issue is canonical. This file is a frozen record — do not update it.

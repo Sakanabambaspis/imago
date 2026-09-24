@@ -14,4 +14,5 @@ When a skill mentions a role (e.g. "apply the AFK-ready triage label"), use the 
 
 Edit the right-hand column to match whatever vocabulary you actually use.
 
-In this repo the labels appear as the `Status:` line of `.scratch/` ticket files (see `issue-tracker.md`).
+In this repo the labels are GitHub labels on `Sakanabambaspis/imago`, applied
+via `gh issue edit <n> --add-label "<label>"` (see `issue-tracker.md`).

@@ -33,3 +33,8 @@ do not silently change pins mid-effort.
   (non-stub), no crash — and the 5-turn transcript of at least one trap
   eyeballed once for sanity (does the stance arm actually hold?).
 - Stub wave JSONs these runs may overwrite/produce are cleaned per ticket 04's rule.
+
+
+## Migrated
+
+Imported as GitHub issue #6 (`Sakanabambaspis/imago`) on 2026-09-24; that issue is canonical. This file is a frozen record — do not update it.

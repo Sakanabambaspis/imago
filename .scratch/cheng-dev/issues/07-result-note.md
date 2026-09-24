@@ -28,3 +28,8 @@ project's first real deliverable. Content, in this order:
 - A non-contributor reads it in two minutes and knows exactly how confident
   to be in each number.
 - Committed on its own with the citation/rationale in the body (AGENTS.md).
+
+
+## Migrated
+
+Imported as GitHub issue #8 (`Sakanabambaspis/imago`) on 2026-09-24; that issue is canonical. This file is a frozen record — do not update it.

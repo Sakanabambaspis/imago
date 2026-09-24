@@ -44,3 +44,8 @@ paragraph count.
 - Sent, with repo link + result note attached.
 - The why-I-care paragraph reads as the owner's own words (the review pass
   is the owner's, not an agent's).
+
+
+## Migrated
+
+Imported as GitHub issue #14 (`Sakanabambaspis/imago`) on 2026-09-24; that issue is canonical. This file is a frozen record — do not update it.

@@ -23,3 +23,8 @@ measure across models is the kind of result an evaluation lab reads.
 
 - A replication note exists stating same-direction / different-magnitude /
   no-replication, with the same confidence framing as ticket 07's note.
+
+
+## Migrated
+
+Imported as GitHub issue #11 (`Sakanabambaspis/imago`) on 2026-09-24; that issue is canonical. This file is a frozen record — do not update it.

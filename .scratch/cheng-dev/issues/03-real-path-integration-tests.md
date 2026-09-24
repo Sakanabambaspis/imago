@@ -28,3 +28,8 @@ instrument path with `stub=None`:
 - New tests pass.
 - **Reverting ticket 02's fix makes the new test fail** — that is the proof
   the gap is closed. Verify this once, note it in `## Comments`.
+
+
+## Migrated
+
+Imported as GitHub issue #4 (`Sakanabambaspis/imago`) on 2026-09-24; that issue is canonical. This file is a frozen record — do not update it.

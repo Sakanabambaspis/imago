@@ -25,3 +25,8 @@ conversation ("the weakness I named is now measured").
 
 - κ numbers exist with the labeling protocol written down (who labeled, how
   many items, disagreements resolved how).
+
+
+## Migrated
+
+Imported as GitHub issue #9 (`Sakanabambaspis/imago`) on 2026-09-24; that issue is canonical. This file is a frozen record — do not update it.

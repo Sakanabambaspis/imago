@@ -46,3 +46,8 @@ means juggling config files and terminals.
   diffs under `imago/`; smoke create/list/resume + one REAL model turn
   end-to-end (draft → reply logged; the stance gate correctly stayed quiet
   on a non-constitution turn).
+
+
+## Migrated
+
+Imported as GitHub issue #2 (`Sakanabambaspis/imago`) on 2026-09-24; that issue is canonical. This file is a frozen record — do not update it.

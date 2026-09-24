@@ -26,3 +26,8 @@ The "Honest deviations from design-mvp.md" section **stays** — see spec.
 ## Done when
 
 - Every checkable claim in the README checks out against the tree.
+
+
+## Migrated
+
+Imported as GitHub issue #13 (`Sakanabambaspis/imago`) on 2026-09-24; that issue is canonical. This file is a frozen record — do not update it.

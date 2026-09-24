@@ -29,3 +29,8 @@ glm-4-flash) is an untracked scratch file in the tree — limbo.
 
 - `docs/results/` contains no stub-generated JSON.
 - `config.smoke.toml` is either committed with a pointer or ignored.
+
+
+## Migrated
+
+Imported as GitHub issue #5 (`Sakanabambaspis/imago`) on 2026-09-24; that issue is canonical. This file is a frozen record — do not update it.

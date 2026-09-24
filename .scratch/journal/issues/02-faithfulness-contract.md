@@ -40,3 +40,8 @@ including the backfill/addendum rule); job spec appended to
 `~/.zcode/workspace/default/imago-scheduled-tasks.md` as
 `imago-journal-digest` — daily 07:30, hard stop 08:30, after the night
 shift ends. Automation registered via CronCreate same day.
+
+
+## Migrated
+
+Imported as GitHub issue #16 (`Sakanabambaspis/imago`) on 2026-09-24; that issue is canonical. This file is a frozen record — do not update it.

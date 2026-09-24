@@ -46,3 +46,8 @@ incremental appends recompile only new lines; clean "nothing pending" after
 catch-up. Two bugs found and fixed during testing: pending dates with zero
 new lines were being validated (false pass on coverage), and the
 emptiness check tested the wrong dict.
+
+
+## Migrated
+
+Imported as GitHub issue #17 (`Sakanabambaspis/imago`) on 2026-09-24; that issue is canonical. This file is a frozen record — do not update it.
