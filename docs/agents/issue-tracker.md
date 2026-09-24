@@ -33,6 +33,13 @@ Create a GitHub issue.
 
 Run `gh issue view <number> --comments`.
 
+## Before implementing a ticket
+
+Run the pickup gate in [`agent-ready.md`](agent-ready.md) — label present,
+executable acceptance criteria, no open decisions, success command runs green
+*before* work starts. Any failure: stop and report back; never relabel to
+proceed.
+
 ## Wayfinding operations
 
 Used by `/wayfinder`. The **map** is a single issue with **child** issues as tickets.

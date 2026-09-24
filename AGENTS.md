@@ -12,7 +12,7 @@ Issues live as GitHub issues on `Sakanabambaspis/imago`, driven via `gh`. See `d
 
 ### Triage labels
 
-The five canonical triage-role labels are used verbatim as GitHub labels. See `docs/agents/triage-labels.md`.
+The five canonical triage-role labels are used verbatim as GitHub labels. `ready-for-agent` is gated by the rubric and consent rules in `docs/agents/agent-ready.md` — evidence-cited checklist, quote-back approval, and a pickup gate before any implementation. See `docs/agents/triage-labels.md` and `docs/agents/agent-ready.md`.
 
 ### Domain docs
 
